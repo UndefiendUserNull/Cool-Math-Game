@@ -9,7 +9,6 @@ from globals import division_round
 class Game:
     min_x = 0
     max_x = 10
-
     min_y = 0
     max_y = 10
 
