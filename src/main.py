@@ -1,4 +1,3 @@
-# TODO: FIX THE FUCKING KEYBOARD MODULE DOESN'T WORK
 import globals
 import filesHandler
 from game import Game
@@ -42,10 +41,11 @@ def settings():
             division_round_input = utils.get_user_input(
                 "Enter Division Round Amount : "
             )
+            print(round(9.9999, globals.division_round))
+
             if division_round_input > 0:
                 if division_round_input < 5:
-                    globals.division_round = division_round_input
-                    print(globals.division_round)
+                    globals.division_round = int(division_round_input)
                 else:
                     print("Divsion round can't be >= 5")
 
@@ -56,6 +56,7 @@ def settings():
             get_user_name()
 
     if chose != 0:
+        clear_console()
         settings()
 
 

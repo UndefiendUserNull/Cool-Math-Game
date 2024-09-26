@@ -84,10 +84,6 @@ class Game:
     def start_game(self):
         running = True
         correct_answers = 0
-        if self.game_type == "r":
-            input(
-                "THIS GAME MODE STILL UNDER DEVELOPMENT\nRESULTS ARE RANDOM\nRECOMMEND PLAYING IT WITH CHEAT MODE ENABLED"
-            )
         while running:
             self.rand_x = randint(self.min_x, self.max_x)
             self.rand_y = randint(self.min_y, self.max_y)
