@@ -14,4 +14,4 @@ I didn't use any outside libraries, only Pyinstaller (You could use auto-py-to-e
 
 ## Building Command
 
-pyinstaller --noconfirm --onedir --console --name "Cool Math Game" --add-data "globals.py;." --add-data "game.py;." --add-data "filesHandler.py;." "main.py"
+pyinstaller --noconfirm --onedir --console --name "Cool Math Game" --add-data "globals.py;." --add-data "game.py;." --add-data "filesHandler.py;." --add-data "utils.py;." "main.py"
