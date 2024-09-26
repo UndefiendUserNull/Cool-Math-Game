@@ -18,5 +18,5 @@ I recommend using auto-py-to-exe and add all .py files
 
 ## Some screenshots
 
-![SCREENSHOT1](https://i.imgur.com/a7iSmvW.png "Screenshot")
-![SCREENSHOT1](https://i.imgur.com/ZQvIrIh.png "Screenshot2")
+![SCREENSHOT1](https://i.imgur.com/a7iSmvW.png?raw=true "Screenshot")
+![SCREENSHOT1](https://i.imgur.com/ZQvIrIh.png?raw=true "Screenshot2")
