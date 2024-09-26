@@ -1,4 +1,7 @@
-username = ""
-is_cheat_enabled = False
-division_round = 1
-high_scores_path = 'highscores.txt'
+"""The place where user settings are stored"""
+
+username: str = ""
+is_cheat_enabled: bool = False
+# round(0.999, division_round)
+division_round: int = 1
+GAMES_PLAYED_PATH: str = "History.txt"

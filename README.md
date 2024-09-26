@@ -10,7 +10,7 @@ A simple Math Game i made
 
 ## Requirements To Build
 
-I didn't use any outside libraries, only Pyinstaller (You could use auto-py-to-exe)
+I didn't use any outside libraries
 
 ## How To Build
 
