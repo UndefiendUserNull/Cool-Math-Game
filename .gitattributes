@@ -1,4 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-/output
-src/__pycache__
+./output
+.spec
+./src/__pycache__
+./src/build
+./src/dist

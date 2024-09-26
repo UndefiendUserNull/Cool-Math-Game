@@ -12,6 +12,6 @@ A simple Math Game i made
 
 I didn't use any outside libraries, only Pyinstaller (You could use auto-py-to-exe)
 
-## Building Command
+## How To Build
 
-pyinstaller --noconfirm --onedir --console --name "Cool Math Game" --add-data "globals.py;." --add-data "game.py;." --add-data "filesHandler.py;." --add-data "utils.py;." "main.py"
+I recommend using auto-py-to-exe and add all .py files
