@@ -1,10 +1,8 @@
-import os
-
 import globals
 from random import randint
-
 from filesHandler import add_highscore
-from globals import division_round
+import utils
+
 
 class Game:
     min_x = 0
@@ -25,36 +23,39 @@ class Game:
 
     def get_symbol(self):
         match self.game_type:
-            case 'a':
-                return '+'
-            case 's':
-                return '-'
-            case 'm':
-                return  '*'
-            case 'd':
-                return '/'
+            case "a":
+                return "+"
+            case "s":
+                return "-"
+            case "m":
+                return "*"
+            case "d":
+                return "/"
             case _:
                 print("Invalid game type, used addition instead")
-                return '+'
+                return "+"
 
     def get_question(self):
         return f"{self.rand_x} {self.get_symbol()} {self.rand_y} = ?"
 
     def get_result(self):
-        return round(eval(f"{self.rand_x}{self.get_symbol()}{self.rand_y}"), globals.division_round)
+        return round(
+            eval(f"{self.rand_x}{self.get_symbol()}{self.rand_y}"),
+            globals.division_round,
+        )
 
     def get_game_type_string(self):
         match self.game_type:
-            case 'a':
-                return 'Addition'
-            case 's':
-                return 'Subtraction'
-            case 'm':
-                return 'Multiplication'
-            case 'd':
-                return 'Division'
+            case "a":
+                return "Addition"
+            case "s":
+                return "Subtraction"
+            case "m":
+                return "Multiplication"
+            case "d":
+                return "Division"
             case _:
-                return 'Not Found'
+                return "Not Found"
 
     def reset_values(self):
         self.min_x = 0
@@ -78,11 +79,15 @@ class Game:
                 print(self.get_result())
 
             try:
-                self.ui = int(input()) if not self.game_type == 'd' else float(input())
+                self.ui = (
+                    utils.get_user_input()
+                    if not self.game_type == "d"
+                    else float(utils.get_user_input())
+                )
             except ValueError:
                 self.ui = 0
                 print("Invalid Input, next time enter a real number !")
-                input()
+                utils.get_user_input()
                 break
 
             if self.ui == self.get_result():
