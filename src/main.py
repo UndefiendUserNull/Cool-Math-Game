@@ -3,7 +3,9 @@ import filesHandler
 from game import Game
 import utils
 from utils import clear_console
+from colors import Colors
 
+print(f"{Colors.LIGHT_WHITE}", end="")
 addition_game = Game("a")
 subtraction_game = Game("s")
 multiplication_game = Game("m")
@@ -25,7 +27,9 @@ def show_games_played():
 
 
 def settings():
-    is_cheat_symbol = "*" if globals.is_cheat_enabled else "-"
+    is_cheat_symbol = (
+        f"{Colors.GREEN}*{Colors.LIGHT_WHITE}" if globals.is_cheat_enabled else "-"
+    )
 
     print(f"[1] Cheat Mode ({is_cheat_symbol})")
     print(f"[2] Division Round ({globals.division_round})")
@@ -47,10 +51,12 @@ def settings():
                 if division_round_input < 5:
                     globals.division_round = int(division_round_input)
                 else:
-                    print("Divsion round can't be >= 5")
+                    print(
+                        f"{Colors.RED}Divsion round can't be >= 5{Colors.LIGHT_WHITE}"
+                    )
 
             else:
-                print("Enter a value > 1")
+                print(f"{Colors.RED}Enter a value > 1{Colors.LIGHT_WHITE}")
         case 3:
             globals.username = ""
             get_user_name()
@@ -64,15 +70,15 @@ running = True
 
 
 def main_menu_text():
-    print("[1] Addition Game")
-    print("[2] Subtraction Game")
-    print("[3] Multiplication Game")
-    print("[4] Division Game")
-    print("[5] Random Game")
-    print("[6] Settings")
-    print("[7] History")
-    print("[8] Credits")
-    print("[0] Exit")
+    print(f"{Colors.CYAN}[1] Addition Game{Colors.LIGHT_WHITE}")
+    print(f"{Colors.LIGHT_PURPLE}[2] Subtraction Game{Colors.LIGHT_WHITE}")
+    print(f"{Colors.BROWN}[3] Multiplication Game{Colors.LIGHT_WHITE}")
+    print(f"{Colors.LIGHT_RED}[4] Division Game{Colors.LIGHT_WHITE}")
+    print(f"{Colors.PURPLE}[5] Random Game{Colors.LIGHT_WHITE}")
+    print(f"{Colors.DARK_GRAY}[6] Settings{Colors.LIGHT_WHITE}")
+    print(f"{Colors.LIGHT_GREEN}[7] History{Colors.LIGHT_WHITE}")
+    print(f"{Colors.LIGHT_CYAN}[8] Credits{Colors.LIGHT_WHITE}")
+    print(f"{Colors.LIGHT_WHITE}[0] Exit{Colors.LIGHT_WHITE}")
 
 
 def game_chooser():
@@ -95,7 +101,7 @@ def game_chooser():
         case 7:
             show_games_played()
         case 8:
-            print("Made with <3 by Hazem")
+            print(f"Made with {Colors.LIGHT_RED}<3{Colors.LIGHT_WHITE} by Hazem")
         case 0:
             running = False
         case _:
@@ -104,7 +110,9 @@ def game_chooser():
 
 def main_menu():
     clear_console()
-    print("Welcome to math game, please choose a game")
+    print(
+        f"{Colors.YELLOW}Welcome to math game, please choose a game{Colors.LIGHT_WHITE}"
+    )
     while running:
         main_menu_text()
         game_chooser()

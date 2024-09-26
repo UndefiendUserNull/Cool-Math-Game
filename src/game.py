@@ -1,3 +1,4 @@
+from colors import Colors
 import globals
 from random import randint
 from filesHandler import add_games_played
@@ -94,7 +95,7 @@ class Game:
             self.ui = utils.get_user_input()
 
             if self.ui == self.get_result(symbol=current_symbol):
-                print("Correct !")
+                print(f"{Colors.LIGHT_GREEN}Correct !{Colors.LIGHT_WHITE}")
                 self.increase_difficulty_and_streak()
                 correct_answers += 1
                 if correct_answers >= 5:
@@ -104,8 +105,10 @@ class Game:
             else:
                 add_games_played(self.get_game_type_string(), self.streak)
                 print(
-                    f"Wrong !, correct answer is {self.get_result(symbol=current_symbol)}"
+                    f"{Colors.LIGHT_RED}Wrong !, correct answer is {self.get_result(symbol=current_symbol)}{Colors.LIGHT_WHITE}"
                 )
-                print(f"\nYou had a great streak of {self.streak}\n")
+                print(
+                    f"\n{Colors.BLUE}You had a great streak of {self.streak}{Colors.LIGHT_WHITE}"
+                )
                 self.reset_values()
                 running = False
