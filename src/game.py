@@ -21,12 +21,12 @@ class Game:
     def __init__(self, game_type):
         self.game_type = game_type
 
-    def get_question(self):
-        return f"{self.rand_x} {self.get_symbol()} {self.rand_y} = ?"
+    def get_question(self, symbol):
+        return f"{self.rand_x} {symbol} {self.rand_y} = ?"
 
-    def get_result(self):
+    def get_result(self, symbol):
         return round(
-            eval(f"{self.rand_x}{self.get_symbol()}{self.rand_y}"),
+            eval(f"{self.rand_x}{symbol}{self.rand_y}"),
             globals.division_round,
         )
 
@@ -87,13 +87,13 @@ class Game:
         while running:
             self.rand_x = randint(self.min_x, self.max_x)
             self.rand_y = randint(self.min_y, self.max_y)
-
-            print(self.get_question())
+            current_symbol = self.get_symbol()
+            print(self.get_question(symbol=current_symbol))
             if globals.is_cheat_enabled:
-                print(self.get_result())
+                print(self.get_result(symbol=current_symbol))
             self.ui = utils.get_user_input()
 
-            if self.ui == self.get_result():
+            if self.ui == self.get_result(symbol=current_symbol):
                 print("Correct !")
                 self.increase_difficulty_and_streak()
                 correct_answers += 1
@@ -103,7 +103,9 @@ class Game:
 
             else:
                 add_games_played(self.get_game_type_string(), self.streak)
-                print(f"Wrong !, correct answer is {self.get_result()}")
+                print(
+                    f"Wrong !, correct answer is {self.get_result(symbol=current_symbol)}"
+                )
                 print(f"\nYou had a great streak of {self.streak}\n")
                 self.reset_values()
                 running = False
