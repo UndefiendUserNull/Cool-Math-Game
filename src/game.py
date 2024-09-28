@@ -1,5 +1,5 @@
+import globals
 from colors import Colors
-from globals import is_cheat_enabled, division_round
 from random import randint
 from filesHandler import add_games_played
 from utils import clear_console, get_user_input
@@ -28,7 +28,7 @@ class Game:
     def get_result(self, symbol):
         return round(
             eval(f"{self.rand_x}{symbol}{self.rand_y}"),
-            division_round,
+            globals.division_round,
         )
 
     def get_symbol(self):
@@ -90,7 +90,7 @@ class Game:
             self.rand_y = randint(self.min_y, self.max_y)
             current_symbol = self.get_symbol()
             print(self.get_question(symbol=current_symbol))
-            if is_cheat_enabled:
+            if globals.is_cheat_enabled:
                 print(self.get_result(symbol=current_symbol))
             self.ui = get_user_input()
 
