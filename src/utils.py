@@ -1,6 +1,6 @@
-import time
-import platform
-import os
+from time import sleep
+from platform import system as current_os
+from os import system
 
 
 def get_user_input(
@@ -27,17 +27,17 @@ def get_user_input(
             if not zero_on_error:
                 print("Enter a valid input")
             else:
-                return -1
-    return -1
+                return 0
+    return 0
 
 
 def press_to_continue():
-    time.sleep(0.3)
+    sleep(0.3)
     input("Press any key to continue ...")
 
 
 def clear_console():
-    if platform.system() == "Windows":
-        os.system("cls")
-    elif platform.system() == "Linux":
-        os.system("reset")
+    if current_os() == "Windows":
+        system("cls")
+    elif current_os() == "Linux":
+        system("reset")

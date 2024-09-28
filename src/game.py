@@ -1,8 +1,8 @@
 from colors import Colors
-import globals
+from globals import is_cheat_enabled, division_round
 from random import randint
 from filesHandler import add_games_played
-import utils
+from utils import clear_console, get_user_input
 
 
 class Game:
@@ -28,7 +28,7 @@ class Game:
     def get_result(self, symbol):
         return round(
             eval(f"{self.rand_x}{symbol}{self.rand_y}"),
-            globals.division_round,
+            division_round,
         )
 
     def get_symbol(self):
@@ -90,16 +90,16 @@ class Game:
             self.rand_y = randint(self.min_y, self.max_y)
             current_symbol = self.get_symbol()
             print(self.get_question(symbol=current_symbol))
-            if globals.is_cheat_enabled:
+            if is_cheat_enabled:
                 print(self.get_result(symbol=current_symbol))
-            self.ui = utils.get_user_input()
+            self.ui = get_user_input()
 
             if self.ui == self.get_result(symbol=current_symbol):
                 print(f"{Colors.LIGHT_GREEN}Correct !{Colors.LIGHT_WHITE}")
                 self.increase_difficulty_and_streak()
                 correct_answers += 1
                 if correct_answers >= 5:
-                    utils.clear_console()
+                    clear_console()
                     correct_answers = 0
 
             else:

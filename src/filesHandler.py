@@ -19,12 +19,16 @@ def add_games_played(game_type: str, streak: int):
     if is_games_played_exist():
         with open(globals.GAMES_PLAYED_PATH, "a") as f:
             if globals.is_cheat_enabled:
-                f.write(
-                    f"{globals.username} Played {a_or_an} {game_type} Game WITH CHEATS Ended With {streak} Streak BY CHEATING\n"
+                (
+                    f.write(
+                        f"{globals.username} Played {a_or_an} {game_type} Game WITH CHEATS Ended With {streak} Streak BY CHEATING\n"
+                    )
                 )
             else:
-                f.write(
-                    f"{globals.username} Played {a_or_an} {game_type} Game Ended With {streak} Streak\n"
+                (
+                    f.write(
+                        f"{globals.username} Played {a_or_an} {game_type} Game Ended With {streak} Streak\n"
+                    )
                 )
 
 

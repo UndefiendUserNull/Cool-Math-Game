@@ -36,9 +36,8 @@ def settings():
     print(f"[3] Change Username ({globals.username})")
     print("[0] Exit")
 
-    chose = utils.get_user_input("Choose : ")
-
-    match chose:
+    settings_chose = utils.get_user_input("Choose : ")
+    match settings_chose:
         case 1:
             globals.is_cheat_enabled = not globals.is_cheat_enabled
         case 2:
@@ -61,7 +60,7 @@ def settings():
             globals.username = ""
             get_user_name()
 
-    if chose != 0:
+    if settings_chose != 0:
         clear_console()
         settings()
 
@@ -83,9 +82,9 @@ def main_menu_text():
 
 def game_chooser():
     global running
-    chose = int(utils.get_user_input("> ", True))
+    main_chose = int(utils.get_user_input("> ", True))
     clear_console()
-    match chose:
+    match main_chose:
         case 1:
             addition_game.start_game()
         case 2:
@@ -128,3 +127,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+print(f"{Colors.LIGHT_WHITE}", end="")
