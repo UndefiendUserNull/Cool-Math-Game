@@ -40,4 +40,4 @@ def clear_console():
     if current_os() == "Windows":
         system("cls")
     elif current_os() == "Linux":
-        system("reset")
+        system("clear")

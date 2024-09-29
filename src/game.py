@@ -42,7 +42,7 @@ class Game:
             case "d":
                 return "/"
             case "r":
-                random_symbol = ["+", "-", "*", "/"][randint(0, 3)]
+                random_symbol = ("+", "-", "*", "/")[randint(0, 3)]
                 return random_symbol
             case _:
                 print("Invalid game type, used addition instead")
