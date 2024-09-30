@@ -1,21 +1,12 @@
 from time import sleep
 from platform import system as current_os
 from os import system
+from colors import Colors
 
 
 def get_user_input(
     prompt: str = "", float_it: bool = True, zero_on_error: bool = False
 ) -> str | int:
-    """_summary_
-
-    Args:
-        prompt (str, optional): The message. Defaults to ""
-        float_it (bool, optional): Return the int value of the input. Defaults to True.
-        zero_on_error (bool, optional): If there's an error return -1, use when the input is not stored. Defaults to False.
-
-    Returns:
-        _type_: String | Int
-    """
     stuck = True
     while stuck:
         try:
@@ -41,3 +32,7 @@ def clear_console():
         system("cls")
     elif current_os() == "Linux":
         system("clear")
+
+
+def colored_text(text, color):
+    return f"{color}{text}{Colors.LIGHT_WHITE}"

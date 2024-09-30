@@ -1,8 +1,17 @@
+from enum import Enum
 import globals
 from colors import Colors
 from random import randint
 from filesHandler import add_games_played
-from utils import clear_console, get_user_input
+from utils import clear_console, get_user_input, colored_text
+
+
+class GameType(Enum):
+    ADDITION = "a"
+    SUBTRACTION = "s"
+    MULTIPLICATION = "m"
+    DIVISION = "d"
+    RANDOM = "r"
 
 
 class Game:
@@ -32,36 +41,24 @@ class Game:
         )
 
     def get_symbol(self):
-        match self.game_type:
-            case "a":
-                return "+"
-            case "s":
-                return "-"
-            case "m":
-                return "*"
-            case "d":
-                return "/"
-            case "r":
-                random_symbol = ("+", "-", "*", "/")[randint(0, 3)]
-                return random_symbol
-            case _:
-                print("Invalid game type, used addition instead")
-                return "+"
+        symbols = {
+            GameType.ADDITION.value: "+",
+            GameType.SUBTRACTION.value: "-",
+            GameType.MULTIPLICATION.value: "*",
+            GameType.DIVISION.value: "/",
+            GameType.RANDOM.value: ("+", "-", "*", "/")[randint(0, 3)],
+        }
+        return symbols.get(self.game_type, "+")
 
     def get_game_type_string(self):
-        match self.game_type:
-            case "a":
-                return "Addition"
-            case "s":
-                return "Subtraction"
-            case "m":
-                return "Multiplication"
-            case "d":
-                return "Division"
-            case "r":
-                return "Random"
-            case _:
-                return "Not Found"
+        game_types = {
+            GameType.ADDITION.value: "Addition",
+            GameType.SUBTRACTION.value: "Subtraction",
+            GameType.MULTIPLICATION.value: "Multiplication",
+            GameType.DIVISION.value: "Division",
+            GameType.RANDOM.value: "Random",
+        }
+        return game_types.get(self.game_type, "Not Found")
 
     def reset_values(self):
         self.min_x = 0
@@ -95,7 +92,7 @@ class Game:
             self.ui = get_user_input()
 
             if self.ui == self.get_result(symbol=current_symbol):
-                print(f"{Colors.LIGHT_GREEN}Correct !{Colors.LIGHT_WHITE}")
+                print(colored_text("Correct !", Colors.LIGHT_GREEN))
                 self.increase_difficulty_and_streak()
                 correct_answers += 1
                 if correct_answers >= 5:
@@ -105,10 +102,15 @@ class Game:
             else:
                 add_games_played(self.get_game_type_string(), self.streak)
                 print(
-                    f"{Colors.LIGHT_RED}Wrong !, correct answer is {self.get_result(symbol=current_symbol)}{Colors.LIGHT_WHITE}"
+                    colored_text(
+                        f"Wrong !, correct answer is {self.get_result(symbol=current_symbol)}",
+                        Colors.LIGHT_RED,
+                    )
                 )
                 print(
-                    f"\n{Colors.BLUE}You had a great streak of {self.streak}{Colors.LIGHT_WHITE}"
+                    colored_text(
+                        f"\nYou had a great streak of {self.streak}", Colors.BLUE
+                    )
                 )
                 self.reset_values()
                 running = False
