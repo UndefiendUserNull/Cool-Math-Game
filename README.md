@@ -36,7 +36,7 @@ After that hit `CONVERT .PY TO .EXE`
 
 ### Method 2 "pyinstaller"
 
-Install auto-py-to-exe `pip install pyinstaller`
+Install pyinstaller `pip install pyinstaller`
 
 Clone the repo `git clone https://github.com/UndefiendUserNull/Cool-Math-Game`
 
