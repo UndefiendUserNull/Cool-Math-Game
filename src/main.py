@@ -29,15 +29,38 @@ def show_games_played():
 def update_division_round():
     while True:
         division_round_input = utils.get_user_input(
-            "Enter Division Round Amount (1-5): ", True
+            "Enter Division Round Amount (1-4): ", int_it=True
         )
         if 1 <= division_round_input < 5:
-            globals.division_round = int(division_round_input)
+            globals.division_round = division_round_input
             break
         else:
             print(
-                f"{Colors.RED}Invalid value. Please enter a value between 1 and 5.{Colors.LIGHT_WHITE}"
+                f"{Colors.RED}Invalid value. Please enter a value between 1 and 4.{Colors.LIGHT_WHITE}"
             )
+
+
+def update_clear_after_correct_ansewrs(new_value: int):
+    globals.correct_answers_clear = new_value
+
+
+def export_settings():
+    filesHandler.export_settings()
+    print(
+        colored_text(
+            f"Settings Exported ({globals.exported_settings_path})", Colors.GREEN
+        )
+    )
+    utils.press_to_continue()
+
+
+def import_settings():
+    try:
+        filesHandler.import_settings()
+    except IndexError:
+        input(utils.colored_text("Not A Settings File, Press Enter To Continue ..."))
+    except ValueError:
+        input(utils.colored_text("Broken Save File, Press Enter To Continue ..."))
 
 
 def settings():
@@ -48,6 +71,10 @@ def settings():
     print(f"[1] Cheat Mode ({is_cheat_symbol})")
     print(f"[2] Division Round ({globals.division_round})")
     print(f"[3] Change Username ({globals.username})")
+    print(f"[4] Clear Console After ({globals.correct_answers_clear}) Correct Answers")
+    print("[5] Import Settings")
+    print("[6] Export Settings")
+    print("[7] Reset Settings")
     print("[0] Exit")
 
     settings_chose = utils.get_user_input("Choose : ")
@@ -59,6 +86,16 @@ def settings():
         case 3:
             globals.username = ""
             get_user_name()
+        case 4:
+            update_clear_after_correct_ansewrs(
+                utils.get_user_input("Enter the new value : ", int_it=True)
+            )
+        case 5:
+            import_settings()
+        case 6:
+            export_settings()
+        case 7:
+            filesHandler.import_default_settings()
 
     if settings_chose != 0:
         clear_console()
@@ -118,8 +155,10 @@ def main_menu():
 
 
 def main():
-    get_user_name()
+    clear_console()
     filesHandler.init()
+    if len(globals.username) < 1:
+        get_user_name()
     main_menu()
 
 

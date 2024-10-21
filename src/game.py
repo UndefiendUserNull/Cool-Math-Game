@@ -40,7 +40,7 @@ class Game:
             globals.division_round,
         )
 
-    def get_symbol(self):
+    def get_symbol(self) -> str:
         symbols = {
             GameType.ADDITION.value: "+",
             GameType.SUBTRACTION.value: "-",
@@ -50,7 +50,7 @@ class Game:
         }
         return symbols.get(self.game_type, "+")
 
-    def get_game_type_string(self):
+    def get_game_type_string(self) -> str:
         game_types = {
             GameType.ADDITION.value: "Addition",
             GameType.SUBTRACTION.value: "Subtraction",
@@ -95,7 +95,7 @@ class Game:
                 print(colored_text("Correct !", Colors.LIGHT_GREEN))
                 self.increase_difficulty_and_streak()
                 correct_answers += 1
-                if correct_answers >= 5:
+                if correct_answers >= globals.correct_answers_clear:
                     clear_console()
                     correct_answers = 0
 
