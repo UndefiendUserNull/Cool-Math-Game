@@ -31,7 +31,7 @@ def get_user_input(
 
 
 def press_to_continue():
-    sleep(0.3)
+    sleep(0.1)
     input("Press any key to continue ...")
 
 
