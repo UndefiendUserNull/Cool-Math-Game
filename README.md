@@ -1,51 +1,53 @@
-# Cool-Math-Game π
+<!-- Language: en -->
 
-A simple Math Game i made
+# Cool Math Game π
+
+Cool Math Game is an engaging math-based game designed to challenge your arithmetic skills while providing fun and excitement.
 
 ## Features
 
-- The game gets harder the more you play
-- Saving system to store your streaks
-- Multiple Modes
-- Colorful Console Based
-- Very lightweight
+- **Dynamic Difficulty**: The game increases in difficulty the more you play it
+- **Saving System**: Your progress and streaks are saved
+- **Modes**: Addition, Subtraction, Multiplication, Division and Random
+- **Colorful Console**: Not a boring console.
+- **Lightweight**: The game uses Maximum 12.2MB of ram.
 
 ## Requirements To Build
 
-I didn't use any outside libraries
+- Python 3.x (no external libraries used)
 
 ## How To Build
 
-### Method 1 "auto-py-to-exe"
+### Method 1: ".bat/.sh"
 
-Install auto-py-to-exe `pip install auto-py-to-exe`
+1. Clone the repo: `git clone https://github.com/UndefiendUserNull/Cool-Math-Game`
+2. Navigate to the repository folder.
+3. For **Windows**, run the `build.bat`.
+4. For **Linux**, run the `build-linux.sh`.
 
-Clone the repo `git clone https://github.com/UndefiendUserNull/Cool-Math-Game`
+### Method 2: "auto-py-to-exe"
 
-Open the cmd inside the "src" folder and type `auto-py-to-exe`
+1. Install auto-py-to-exe: `pip install auto-py-to-exe`.
+2. Clone the repo: `git clone https://github.com/UndefiendUserNull/Cool-Math-Game`.
+3. Open a terminal inside the "src" folder and type `auto-py-to-exe`.
+4. Expand the settings tab.
+5. Click `Import Config From JSON File` and select the `build-config.json` file inside the repo.
+6. Hit `CONVERT .PY TO .EXE`.
 
-Expand the settings tab
+### Method 3: "pyinstaller"
 
-![SCREENSHOT2](https://i.imgur.com/q81ORJO.png "s")
+1. Install pyinstaller: `pip install pyinstaller`.
+2. Clone the repo: `git clone https://github.com/UndefiendUserNull/Cool-Math-Game`.
+3. Open a terminal inside the "src" folder and paste the following command:
 
-Click `Import Config From JSON File`
+   **Windows**:
 
-Then select the `build-config.json` file that's inside the repo
+   ```bash
+   pyinstaller --noconfirm --onefile --console --icon "..\ico.ico" --name "Cool Math Game" --clean --add-data "game.py;." --add-data "filesHandler.py;." --add-data "colors.py;." --add-data "globals.py;." --add-data "utils.py;." "main.py"
+   ```
 
-After that hit `CONVERT .PY TO .EXE`
+   **Linux**:
 
-### Method 2 "pyinstaller"
-
-Install pyinstaller `pip install pyinstaller`
-
-Clone the repo `git clone https://github.com/UndefiendUserNull/Cool-Math-Game`
-
-Open the cmd inside the "src" folder and paste this long command
-
-`pyinstaller --noconfirm --onefile --console --icon "..\ico.ico" --name "Cool Math Game" --clean --add-data "game.py;." --add-data "filesHandler.py;." --add-data "colors.py;." --add-data "globals.py;." --add-data "utils.py;." "main.py"`
-
-## Some screenshots
-
-![SCREENSHOT1](https://i.imgur.com/a7iSmvW.png?raw=true "Screenshot")
-![SCREENSHOT2](https://i.imgur.com/ZQvIrIh.png?raw=true "Screenshot2")
-![SCREENSHOT2](https://i.imgur.com/Agr8bJ3.png?raw=true "Screenshot3")
+   ```bash
+   pyinstaller --noconfirm --onefile --console --icon="ico.ico" --name="Cool Math Game" --clean --add-data="src/game.py:." --add-data="src/filesHandler.py:." --add-data="src/colors.py:." --add-data="src/globals.py:." --add-data="src/utils.py:." src/main.py
+   ```

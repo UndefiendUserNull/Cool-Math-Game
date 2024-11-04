@@ -10,3 +10,4 @@ tempCodeRunnerFile.py
 *.spec
 /dist
 /src/build
+/build
