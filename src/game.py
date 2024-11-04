@@ -31,10 +31,26 @@ class Game:
     def __init__(self, game_type):
         self.game_type = game_type
 
-    def get_question(self, symbol):
+    def get_question(self, symbol: str) -> str:
+        """This returns the full question
+
+        Args:
+            symbol (_str_): Get from the get_symbol func
+
+        Returns:
+            _str_: _The full question_
+        """
         return f"{self.rand_x} {symbol} {self.rand_y} = ?"
 
-    def get_result(self, symbol):
+    def get_result(self, symbol: str) -> str:
+        """**EVAL USED**
+
+        Args:
+            symbol (_str_): Get from the get_symbol func
+
+        Returns:
+            str: returns the result rounded by the global round division
+        """
         return round(
             eval(f"{self.rand_x}{symbol}{self.rand_y}"),
             globals.division_round,

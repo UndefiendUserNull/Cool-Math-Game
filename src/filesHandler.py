@@ -4,6 +4,9 @@ import os
 
 
 def init():
+    """
+    tries to load the settings in the dir and creates a History.py if it doesn't exist
+    """
     # To make sure old "highscores" from previos versions work
     settings_found = []
     for i in os.listdir(os.getcwd()):
@@ -57,7 +60,7 @@ def read_settings(path="NONE") -> list:
     data = []
     if path == "NONE":
         try:
-            with open(utils.open_file_dialog(), "r") as f:
+            with open(utils.get_settings_with_file_dialog(), "r") as f:
                 for i in f.readlines():
                     if i.startswith("#"):
                         continue
@@ -92,6 +95,7 @@ def import_default_settings():
 
 
 def add_games_played(game_type: str, streak: int):
+    """May Change When Adding geometry"""
     a_or_an = "a" if game_type[0].lower() != "a" else "an"
     if is_games_played_exist():
         with open(globals.GAMES_PLAYED_PATH, "a") as f:
