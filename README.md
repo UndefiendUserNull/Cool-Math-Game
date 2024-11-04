@@ -7,7 +7,7 @@ A simple Math Game i made
 - The game gets harder the more you play
 - Saving system to store your streaks
 - Multiple Modes
-- Colorful Console Based 
+- Colorful Console Based
 - Very lightweight
 
 ## Requirements To Build
@@ -42,7 +42,7 @@ Clone the repo `git clone https://github.com/UndefiendUserNull/Cool-Math-Game`
 
 Open the cmd inside the "src" folder and paste this long command
 
-`pyinstaller --noconfirm --onefile --console --icon "ico.ico" --name "Cool Math Game" --upx-dir "upx" --clean --add-data "game.py;." --add-data "filesHandler.py;." --add-data "colors.py;." --add-data "globals.py;." --add-data "utils.py;."  "main.py"`
+`pyinstaller --noconfirm --onefile --console --icon "..\ico.ico" --name "Cool Math Game" --clean --add-data "game.py;." --add-data "filesHandler.py;." --add-data "colors.py;." --add-data "globals.py;." --add-data "utils.py;." "main.py"`
 
 ## Some screenshots
 

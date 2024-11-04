@@ -7,3 +7,6 @@ Screenshots
 /Resources
 tempCodeRunnerFile.py
 /tests
+*.spec
+/dist
+/src/build
