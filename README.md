@@ -53,3 +53,9 @@ Cool Math Game is an engaging math-based game designed to challenge your arithme
    ```bash
    pyinstaller --noconfirm --onefile --console --icon="ico.ico" --name="Cool Math Game" --clean --add-data="src/game.py:." --add-data="src/filesHandler.py:." --add-data="src/colors.py:." --add-data="src/globals.py:." --add-data="src/utils.py:." src/main.py
    ```
+
+## Screenshots
+
+![SCREENSHOT1](https://i.imgur.com/a7iSmvW.png?raw=true "Screenshot")
+![SCREENSHOT2](https://i.imgur.com/ZQvIrIh.png?raw=true "Screenshot2")
+![SCREENSHOT2](https://i.imgur.com/Agr8bJ3.png?raw=true "Screenshot3")

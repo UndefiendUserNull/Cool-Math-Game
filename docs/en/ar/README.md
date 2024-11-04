@@ -20,7 +20,7 @@
 
 ### الطريقه 1: "bat/sh"
 
-1. انسخ الريبو: `git clone https://github.com/UndefiendUserNull/Cool-Math-Game`
+1. انسخ الريبو `git clone https://github.com/UndefiendUserNull/Cool-Math-Game`
 2. لمستخدم **ويندوز**, شغل `build.bat`
 3. لمستخدم **لينكس**, شغل `build-linux.sh`
 
@@ -35,8 +35,8 @@
 
 ### الطريقه 3: "pyinstaller"
 
-1. نزل : `pip install pyinstaller`.
-2. انسخ الريبو : `git clone https://github.com/UndefiendUserNull/Cool-Math-Game`.
+1. نزل : `pip install pyinstaller`
+2. انسخ الريبو : `git clone https://github.com/UndefiendUserNull/Cool-Math-Game`
 3. افتح الcmd جوا "src" وحط الكود ده
 
    **ويندوز** :
@@ -50,3 +50,9 @@
    ```bash
    pyinstaller --noconfirm --onefile --console --icon="ico.ico" --name="Cool Math Game" --clean --add-data="src/game.py:." --add-data="src/filesHandler.py:." --add-data="src/colors.py:." --add-data="src/globals.py:." --add-data="src/utils.py:." src/main.py
    ```
+
+# صور
+
+![صوره واحد](https://i.imgur.com/a7iSmvW.png?raw=true "صوره")
+![صوره اتنين](https://i.imgur.com/ZQvIrIh.png?raw=true "صوره اتنين")
+![صوره تلاته](https://i.imgur.com/Agr8bJ3.png?raw=true "صوره تلاته")
