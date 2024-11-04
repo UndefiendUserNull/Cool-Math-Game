@@ -1,1 +1,0 @@
-sound.duration_seconds / 60
