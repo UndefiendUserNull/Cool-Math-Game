@@ -1,5 +1,7 @@
 <!-- Language: en -->
 
+[عربي](https://github.com/UndefiendUserNull/Cool-Math-Game/tree/main/docs/en/ar)
+
 # Cool Math Game π
 
 Cool Math Game is an engaging math-based game designed to challenge your arithmetic skills while providing fun and excitement.
