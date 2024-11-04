@@ -98,7 +98,6 @@ class Game:
                 if correct_answers >= globals.correct_answers_clear:
                     clear_console()
                     correct_answers = 0
-
             else:
                 add_games_played(self.get_game_type_string(), self.streak)
                 print(
