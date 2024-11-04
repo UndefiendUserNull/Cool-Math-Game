@@ -46,6 +46,14 @@ def colored_text(text, color=Colors.LIGHT_WHITE):
     return f"{color}{text}{Colors.LIGHT_WHITE}"
 
 
+def print_colored_text(text, color=Colors.LIGHT_WHITE):
+    print(f"{color}{text}{Colors.LIGHT_WHITE}")
+
+
+def reset_colors():
+    print(f"{Colors.LIGHT_WHITE}", end="")
+
+
 def open_file_dialog() -> str:
     root = tk.Tk()
     root.withdraw()
@@ -59,5 +67,14 @@ def open_file_dialog() -> str:
 
     file_path = filedialog.askopenfilename(
         initialdir=getcwd(), title="Pick Save File", filetypes=pickedfiletypes
+    )
+    return file_path
+
+
+def open_custom_file_dialog() -> str:
+    root = tk.Tk()
+    root.withdraw()
+    file_path = filedialog.askopenfilename(
+        initialdir=getcwd(), title="Pick Chrome Location"
     )
     return file_path

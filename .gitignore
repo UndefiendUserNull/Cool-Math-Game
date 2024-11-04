@@ -4,6 +4,4 @@ output
 output2
 Screenshots
 *.pi
-/upx
-apte-nonupx-Config.json
-apte-upx-Config.json
+/Resources

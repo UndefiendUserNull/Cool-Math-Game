@@ -2,10 +2,10 @@ import globals
 import filesHandler
 from game import Game
 import utils
-from utils import clear_console, colored_text
+from utils import clear_console, print_colored_text
 from colors import Colors
 
-print(colored_text("", Colors.LIGHT_WHITE), end="")
+utils.reset_colors()
 addition_game = Game("a")
 subtraction_game = Game("s")
 multiplication_game = Game("m")
@@ -35,8 +35,8 @@ def update_division_round():
             globals.division_round = division_round_input
             break
         else:
-            print(
-                f"{Colors.RED}Invalid value. Please enter a value between 1 and 4.{Colors.LIGHT_WHITE}"
+            print_colored_text(
+                "Invalid value. Please enter a value between 1 and 4.", Colors.RED
             )
 
 
@@ -46,11 +46,11 @@ def update_clear_after_correct_ansewrs(new_value: int):
 
 def export_settings():
     filesHandler.export_settings()
-    print(
-        colored_text(
-            f"Settings Exported ({globals.exported_settings_path})", Colors.GREEN
-        )
+
+    print_colored_text(
+        f"Settings Exported ({globals.exported_settings_path})", Colors.GREEN
     )
+
     utils.press_to_continue()
 
 
@@ -58,14 +58,24 @@ def import_settings():
     try:
         filesHandler.import_settings()
     except IndexError:
-        input(utils.colored_text("Not A Settings File, Press Enter To Continue ..."))
+        input(
+            utils.colored_text(
+                "Not A Settings File, Press Enter To Continue ...", Colors.RED
+            )
+        )
     except ValueError:
-        input(utils.colored_text("Broken Save File, Press Enter To Continue ..."))
+        input(
+            utils.colored_text(
+                "Broken Save File, Press Enter To Continue ...", Colors.RED
+            )
+        )
 
 
 def settings():
     is_cheat_symbol = (
-        colored_text("*", Colors.GREEN) if globals.is_cheat_enabled else "-"
+        utils.colored_text("*", Colors.GREEN)
+        if globals.is_cheat_enabled
+        else utils.colored_text("-", Colors.RED)
     )
 
     print(f"[1] Cheat Mode ({is_cheat_symbol})")
@@ -102,16 +112,16 @@ def settings():
         settings()
 
 
-def main_menu_text():
-    print(colored_text("[1] Addition Game", Colors.CYAN))
-    print(colored_text("[2] Subtraction Game", Colors.LIGHT_PURPLE))
-    print(colored_text("[3] Multiplication Game", Colors.BROWN))
-    print(colored_text("[4] Division Game", Colors.LIGHT_RED))
-    print(colored_text("[5] Random Game", Colors.PURPLE))
-    print(colored_text("[6] Settings", Colors.DARK_GRAY))
-    print(colored_text("[7] History", Colors.LIGHT_GREEN))
-    print(colored_text("[8] Credits", Colors.LIGHT_CYAN))
-    print(colored_text("[0] Exit", Colors.LIGHT_WHITE))
+def print_menu():
+    print_colored_text("[1] Addition Game", Colors.CYAN)
+    print_colored_text("[2] Subtraction Game", Colors.LIGHT_PURPLE)
+    print_colored_text("[3] Multiplication Game", Colors.BROWN)
+    print_colored_text("[4] Division Game", Colors.LIGHT_RED)
+    print_colored_text("[5] Random Game", Colors.PURPLE)
+    print_colored_text("[6] Settings", Colors.DARK_GRAY)
+    print_colored_text("[7] History", Colors.LIGHT_GREEN)
+    print_colored_text("[8] Credits", Colors.LIGHT_CYAN)
+    print_colored_text("[0] Exit", Colors.LIGHT_WHITE)
 
 
 running = True
@@ -137,7 +147,8 @@ def game_chooser():
         case 7:
             show_games_played()
         case 8:
-            print(colored_text("Made with <3 by Hazem", Colors.LIGHT_RED))
+            # print(utils.colored_text("Made with <3 ", Colors.LIGHT_RED + " by Hazem"))
+            print(f"Made with {Colors.LIGHT_RED}<3{Colors.LIGHT_WHITE} by Hazem")
         case 0:
             running = False
         case _:
@@ -146,9 +157,10 @@ def game_chooser():
 
 def main_menu():
     clear_console()
-    print(colored_text("Welcome to math game, please choose a game", Colors.YELLOW))
+    print_colored_text("Welcome to math game, please choose a game", Colors.YELLOW)
+
     while running:
-        main_menu_text()
+        print_menu()
         game_chooser()
         utils.press_to_continue()
         clear_console()
@@ -165,4 +177,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-print(colored_text("", Colors.LIGHT_WHITE), end="")
+utils.reset_colors()

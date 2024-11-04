@@ -3,7 +3,7 @@ import globals
 from colors import Colors
 from random import randint
 from filesHandler import add_games_played
-from utils import clear_console, get_user_input, colored_text
+from utils import clear_console, get_user_input, print_colored_text
 
 
 class GameType(Enum):
@@ -92,24 +92,24 @@ class Game:
             self.ui = get_user_input()
 
             if self.ui == self.get_result(symbol=current_symbol):
-                print(colored_text("Correct !", Colors.LIGHT_GREEN))
+                print_colored_text("Correct !", Colors.LIGHT_GREEN)
                 self.increase_difficulty_and_streak()
                 correct_answers += 1
                 if correct_answers >= globals.correct_answers_clear:
                     clear_console()
                     correct_answers = 0
+
             else:
                 add_games_played(self.get_game_type_string(), self.streak)
-                print(
-                    colored_text(
-                        f"Wrong !, correct answer is {self.get_result(symbol=current_symbol)}",
-                        Colors.LIGHT_RED,
-                    )
+
+                print_colored_text(
+                    f"Wrong !, correct answer is {self.get_result(symbol=current_symbol)}",
+                    Colors.LIGHT_RED,
                 )
-                print(
-                    colored_text(
-                        f"\nYou had a great streak of {self.streak}", Colors.BLUE
-                    )
+
+                print_colored_text(
+                    f"\nYou had a great streak of {self.streak}", Colors.BLUE
                 )
+
                 self.reset_values()
                 running = False
