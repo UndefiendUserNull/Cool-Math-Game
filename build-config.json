@@ -79,6 +79,10 @@
     },
     {
       "optionDest": "datas",
+      "value": "geometryGame.py;."
+    },
+    {
+      "optionDest": "datas",
       "value": "utils.py;."
     }
   ],

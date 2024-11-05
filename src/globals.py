@@ -2,7 +2,6 @@
 
 username: str = ""
 is_cheat_enabled: bool = False
-# round(0.999, division_round)
 division_round: int = 1
 GAMES_PLAYED_PATH: str = "History.pi"
 exported_settings_path: str = f"{username}'s Settings.pi"

@@ -10,5 +10,6 @@ pyinstaller --noconfirm ^
     --add-data "src/colors.py;." ^
     --add-data "src/globals.py;." ^
     --add-data "src/utils.py;." ^
+    --add-data "src/geometryGame.py;." ^
     "src/main.py"
 pause

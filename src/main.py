@@ -1,6 +1,7 @@
 import globals
 import filesHandler
 from game import Game
+from geometryGame import GGame
 import utils
 from utils import clear_console, print_colored_text
 from colors import Colors
@@ -11,6 +12,7 @@ subtraction_game = Game("s")
 multiplication_game = Game("m")
 division_game = Game("d")
 random_game = Game("r")
+geometry_game = GGame("p")
 
 
 def get_user_name():
@@ -118,10 +120,21 @@ def print_menu():
     print_colored_text("[3] Multiplication Game", Colors.BROWN)
     print_colored_text("[4] Division Game", Colors.LIGHT_RED)
     print_colored_text("[5] Random Game", Colors.PURPLE)
-    print_colored_text("[6] Settings", Colors.DARK_GRAY)
-    print_colored_text("[7] History", Colors.LIGHT_GREEN)
-    print_colored_text("[8] Credits", Colors.LIGHT_CYAN)
+    print_colored_text("[6] Geometry Games", Colors.LIGHT_BLUE)
+    print_colored_text("[7] Settings", Colors.DARK_GRAY)
+    print_colored_text("[8] History", Colors.LIGHT_GREEN)
+    print_colored_text("[9] Credits", Colors.LIGHT_CYAN)
     print_colored_text("[0] Exit", Colors.LIGHT_WHITE)
+
+
+def geometry_games_menu():
+    print_colored_text("[1] Pythagorean", Colors.RED)
+
+    ui = utils.get_user_input("> ", int_it=True)
+
+    match ui:
+        case 1:
+            geometry_game.start_game()
 
 
 running = True
@@ -143,11 +156,12 @@ def game_chooser():
         case 5:
             random_game.start_game()
         case 6:
-            settings()
+            geometry_games_menu()
         case 7:
-            show_games_played()
+            settings()
         case 8:
-            # print(utils.colored_text("Made with <3 ", Colors.LIGHT_RED + " by Hazem"))
+            show_games_played()
+        case 9:
             print(f"Made with {Colors.LIGHT_RED}<3{Colors.LIGHT_WHITE} by Hazem")
         case 0:
             running = False
