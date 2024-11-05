@@ -43,13 +43,13 @@
    **ويندوز** :
 
    ```bash
-   pyinstaller --noconfirm --onefile --console --icon "..\ico.ico" --name "Cool Math Game" --clean --add-data "game.py;." --add-data "filesHandler.py;." --add-data --add-data "geometryGame.py;." "colors.py;." --add-data "globals.py;." --add-data "utils.py;." "main.py"
+   pyinstaller --noconfirm --onefile --console --name --icon "./ico.ico" "Cool Math Game" --add-data "colors.py;." --add-data "filesHandler.py;." --add-data "game.py;." --add-data "geometryGame.py;." --add-data "globals.py;." --add-data "main.py;." --add-data "utils.py;."  "src\main.py"
    ```
 
    **لينكس** :
 
    ```bash
-   pyinstaller --noconfirm --onefile --console --icon="ico.ico" --name="Cool Math Game" --clean --add-data="game.py:." --add-data="filesHandler.py:." --add-data="colors.py:." --add-data="geometryGame.py:." --add-data="globals.py:." --add-data="utils.py:." main.py
+   pyinstaller --noconfirm --onefile --console --name "Cool Math Game" --add-data "colors.py:." --add-data "filesHandler.py:." --add-data "game.py:." --add-data "geometryGame.py:." --add-data "globals.py:." --add-data "main.py:." --add-data "utils.py:." "main.py"
    ```
 
 # صور
