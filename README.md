@@ -1,6 +1,6 @@
 <!-- Language: en -->
 
-[عربي](https://github.com/UndefiendUserNull/Cool-Math-Game/tree/main/docs/en/ar)
+[عربي](https://github.com/UndefiendUserNull/Cool-Math-Game/tree/main/docs/ar)
 
 # Cool Math Game π
 
