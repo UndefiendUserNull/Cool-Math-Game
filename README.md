@@ -1,18 +1,10 @@
 <!-- Language: en -->
-
+Note : This project is considered old and was private
 [عربي](https://github.com/UndefiendUserNull/Cool-Math-Game/tree/main/docs/ar)
 
 # Cool Math Game π
 
-Cool Math Game is an engaging math-based game designed to challenge your arithmetic skills while providing fun and excitement.
-
-## Features
-
-- **Dynamic Difficulty**: The game increases in difficulty the more you play it
-- **Saving System**: Your progress and streaks are saved
-- **Modes**: Addition, Subtraction, Multiplication, Division, Random and Pythagorean
-- **Colorful Console**: Not a boring console.
-- **Lightweight**: The game uses Maximum 12.2MB of ram.
+Math game made in python
 
 ## Requirements To Build
 
