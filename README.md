@@ -1,6 +1,7 @@
 <!-- Language: en -->
-Note : This project is considered old and was private
 [عربي](https://github.com/UndefiendUserNull/Cool-Math-Game/tree/main/docs/ar)
+
+Note : This project is considered old and was private
 
 # Cool Math Game π
 
